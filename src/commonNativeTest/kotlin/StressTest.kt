@@ -1,9 +1,9 @@
 import org.objectweb.asm.ClassReader
-import kotlin.test.Test
+import kotlin.test.*
 
-class Example {
+class StressTest {
     @Test
-    fun xx(){
+    fun reRead() {
         val classReader = ClassReader(
             byteArrayOf(
                 -54,
@@ -1415,6 +1415,6 @@ class Example {
                 32
             )
         )
-        classReader.interfaces.forEach { println(it) }
+        assertEquals("javax/servlet/ServletContextListener", classReader.interfaces.first())
     }
 }

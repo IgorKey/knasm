@@ -1,8 +1,11 @@
 rootProject.name = "knasm"
 
+val scriptUrl: String by extra
+apply(from = "$scriptUrl/maven-repo.settings.gradle.kts")
+
 pluginManagement {
-    repositories {
-        maven(url = "http://oss.jfrog.org/oss-release-local")
-        gradlePluginPortal()
+    val kotlinVersion: String by extra
+    plugins {
+        kotlin("multiplatform") version kotlinVersion
     }
 }
